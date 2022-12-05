@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine-Sweeper</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+
+    <div class="main-container">
+        <!-- First container should contain livesCount, Smiley for restart, Timer -->
+        <div class="first-container">
+            <div class="lives-count">❤️</div>
+            <div onclick="restartGame()" class="smiley">🤨</div>
+            <div class="timer">00:00:000</div>
+        </div>
+
+        <!-- Inbetween div should contain game score -->
+        <div class="score">0</div>
+
+        <div class="game-level">
+
+            <label class="radio-btn" onclick="restartGame(4, 2, 1, 'Easy')">
+                <input type="radio" name="myRadioField" class="radio-input" checked>
+                <div class="radio-radio"></div>
+                Easy
+            </label>
+
+            <label class="radio-btn" onclick="restartGame(8, 14, 3, 'Hard')">
+                <input type="radio" name="myRadioField" class="radio-input">
+                <div class="radio-radio"></div>
+                Hard
+            </label>
+
+            <label class="radio-btn" onclick="restartGame(12, 32, 5, 'Hell')">
+                <input type="radio" name="myRadioField" class="radio-input">
+                <div class="radio-radio"></div>
+                Hell!
+            </label>
+
+        </div>
+
+
+
+
+        <div class="second-container">
+
+            <div class="rankings">
+                <table>
+                    <thead>
+                        <th colspan="5">Best Players:</th>
+                    </thead>
+
+                    <tbody class="ranking-table">
+                        <tr>
+                            <td class="name">Name:</td>
+                            <td class="score-rank">Score:</td>
+                        </tr>
+                        <tr class="best-player">
+                            <td class="name best-player-name">Yet to come</td>
+                            <td class="score-rank best-player-score">0</td>
+                        </tr>
+                        <tr class="second-best-player">
+                            <td class="name second-best-player-name">Yet to come</td>
+                            <td class="score-rank second-best-player-score">0</td>
+                        </tr>
+                        <tr class="third-best-player">
+                            <td class="name third-best-player-name">Yet to come</td>
+                            <td class="score-rank third-best-player-score">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <table oncontextmenu="return false;">
+                <tbody class="game-table">
+                </tbody>
+            </table>
+
+            <div class="game-funcs">
+                <button class="hint" onclick="getHint(this)">Hints: 💡💡💡</button>
+                <button class="safe-click" onclick="getSafeClick(this)">Safe Clicks: 🦺🦺🦺</button>
+                <button class="user-mines" onclick="setUserMines(this)">Choose Your Own Mines!</button>
+                <button onclick="undoMove()">Undo</button>
+                <button class="seven-boom" onclick="onSevenBoom(this)">7 Boom!</button>
+                <button class="mega-hint" onclick="onMegaHint(this)">Mega Hint!</button>
+                <button onclick="onMineExterminator(this)">Mines Exterminator</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/rankings.js"></script>
+    <script src="js/hint.js"></script>
+    <script src="js/safe-click.js"></script>
+    <script src="js/seven-boom.js"></script>
+    <script src="js/mega-hint.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
